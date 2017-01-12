@@ -1,5 +1,6 @@
 E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\bin\Debug\SymbolAnalysis.dll
 E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\bin\Debug\SymbolAnalysis.pdb
-E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\bin\Debug\log4net.dll
 E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\obj\Debug\SymbolAnalysis.dll
 E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\obj\Debug\SymbolAnalysis.pdb
+E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\obj\Debug\SymbolAnalysis.csprojResolveAssemblyReference.cache
+E:\MyApp\2017S01\SymbolHelper\SymbolAnalysis\bin\Debug\log4net.dll

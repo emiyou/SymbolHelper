@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace SymbolAnalysis
 {
     // 安全门
@@ -24,7 +19,7 @@ namespace SymbolAnalysis
     }
 
     // 双手操作盒
-    public class DoubleHandOB
+    public class DoubleHandOb
     {
         public string Name;
         public string Station;
@@ -43,7 +38,7 @@ namespace SymbolAnalysis
     }
 
     // 单手操作盒
-    public class SingleHandOB
+    public class SingleHandOb
     {
         public string Name;
         public string Station;

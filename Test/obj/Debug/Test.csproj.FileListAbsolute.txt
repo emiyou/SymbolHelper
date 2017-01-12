@@ -1,0 +1,17 @@
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\Test.exe.config
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\Test.exe
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\Test.pdb
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\log4net.dll
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\SymbolAnalysis.dll
+E:\MyApp\2017S01\SymbolHelper\Test\bin\Debug\SymbolAnalysis.pdb
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\MainWindow.g.cs
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\App.g.cs
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test_MarkupCompile.cache
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test_MarkupCompile.lref
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\MainWindow.baml
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.g.resources
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.Properties.Resources.resources
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.exe
+E:\MyApp\2017S01\SymbolHelper\Test\obj\Debug\Test.pdb

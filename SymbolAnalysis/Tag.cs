@@ -13,6 +13,10 @@ namespace SymbolAnalysis
         DataTypeNull,
         DataTypeError,
         BoxingNull,
+        Reserved,
+        FormatError,
+        NameNonUnique,
+        AddressNonUnique,
         Ok
     }
 
@@ -27,13 +31,54 @@ namespace SymbolAnalysis
         public string Boxing { get; set; }
         public string Station { get; set; }
         public int BoxingPropIndex { get; set; }
+        public bool NameNonUnique;
+        public bool AddressNonUnique;
+
+        //private readonly string fullName;
+
+        public Tag(string record)
+        {
+            //fullName = record;
+            string[] contents = record.Split(',');
+            if (contents.Length != 4)
+            {
+                CheckResult=CheckResult.FormatError;
+                return;
+            }
+            for (int i = 0; i < contents.Length; i++)
+            {
+                if (contents[i].Length < 2 || contents[i].Substring(0, 1) != "\"" ||
+                    contents[i].Substring(contents[i].Length - 1) != "\"")
+                {
+                    CheckResult=CheckResult.FormatError;
+                    return;
+                }
+                if (contents[i].Length == 2)
+                {
+                    contents[i] = "";
+                }
+                else
+                {
+                    contents[i] = contents[i].Substring(1, contents[i].Length - 2).Trim();
+                }
+            }
+            Name = contents[0];
+            Address = contents[1];
+            DataType = contents[2];
+            Comment = contents[3];
+            AddressNonUnique = false;
+            NameNonUnique = false;
+        }
 
         public Tag(string name, string address, string comment, string dataType)
         {
+            //fullName = $"\"{Name.PadLeft(30)}\",\"{Address} \",\"{DataType.PadLeft(10)}\",\"{Comment}\"";
             Name = name.Trim().Substring(1,name.Trim().Length-2);
             Address = address.Trim().Substring(1,address.Trim().Length - 2);
             DataType = dataType.Trim().Substring(1,dataType.Trim().Length - 2);
             Comment = comment.Trim().Substring(1,comment.Trim().Length - 2);
+            AddressNonUnique = false;
+            NameNonUnique = false;
         }
 
         private static readonly string[] BoxingKeys = new[]
@@ -53,7 +98,15 @@ namespace SymbolAnalysis
 
         public override string ToString()
         {
-            return $"\"{Name.PadLeft(30)}\",\"{Address} \",\"{DataType.PadLeft(10)}\",\"{Comment}\"";
+            //if (CheckResult == CheckResult.DataTypeNull)
+            //{
+            //    return $"\"{Name.PadLeft(30)}\",\"{Address} \",\"{DataType.PadLeft(10)}\",\"{Comment}\"";
+            //}
+            //else
+            //{
+            //    return fullName;
+            //}
+            return $"\"{Name.PadRight(30)}\",\"{Address} \",\"{DataType.PadRight(10)}\",\"{Comment}\"";
         }
 
         // 校验Tag，将校验结果存入CheckResult中。如果DataType为空,则填充"BOOL"
@@ -69,20 +122,25 @@ namespace SymbolAnalysis
                 CheckResult=CheckResult.AddressNull;
                 return;
             }
-            if (Address.Substring(0) != "I" && Address.Substring(0) != "Q" &&
-                Address.Substring(0) != "i" && Address.Substring(0) != "q")
+            if (string.IsNullOrEmpty("Reserved"))
+            {
+                CheckResult=CheckResult.Reserved;
+                return;
+            }
+            if (Address.Substring(0,1) != "I" && Address.Substring(0,1) != "Q" &&
+                Address.Substring(0,1) != "i" && Address.Substring(0,1) != "q")
             {
                 CheckResult=CheckResult.AddressError;
                 return;
             }
-            string[] addressNum = Address.Substring(1, Address.Length - 1).Trim().Split('.');
+            string[] addressNum = Address.Substring(1,Address.Length-1).Split('.');
             if (addressNum.Length != 2)
             {
                 CheckResult=CheckResult.AddressError;
                 return;
             }
             int addInt;
-            if (!int.TryParse(addressNum[0], out addInt)||addInt<=0)
+            if (!int.TryParse(addressNum[0], out addInt) || addInt < 0)
             {
                 CheckResult = CheckResult.AddressError;
                 return;
